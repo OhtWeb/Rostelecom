@@ -1,4 +1,3 @@
-import pytest
 from pageobject.pages.registration_page import RegistrationPage
 from pageobject.pages.auth_page import AuthPage
 from pageobject.pages.settings import Settings
@@ -143,3 +142,21 @@ def test_wrong_region(browser):
     if is_wrong_region:
         print("Ввод несуществующего региона невозможен!")
         print("--- Тест test_wrong_region завершен ---")
+
+# 8. Проверка поля email/телефон в неверном формате
+
+def test_wrong_login(browser):
+    login = 'bungamail.ru'
+    auth_page = AuthPage(browser, url=Settings.BASE_URL)
+    registration_page = RegistrationPage(browser)
+    print("\n--- Запуск теста: test_wrong_login ---")
+    auth_page.open()
+    auth_page.choose_auth_by_password()
+    auth_page.open_registration_form()
+    registration_page.fill_email(login)
+    registration_page.click_anywhere()
+    is_wrong_login = registration_page.get_wrong_address()
+    assert is_wrong_login, "Возможен ввод телефона или почты в неверном формате!"
+    if is_wrong_login:
+        print("Ввод ввод телефона или почты в неверном формате невозможен!")
+        print("--- Тест test_wrong_login завершен ---")
