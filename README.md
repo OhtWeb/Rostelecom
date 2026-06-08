@@ -47,15 +47,12 @@
 
 Пример фикстуры в conftest.py:
 
-  import pytest
+import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
-  from selenium import webdriver
-
-  from selenium.webdriver.chrome.service import Service
-
-  from webdriver_manager.chrome import ChromeDriverManager
-
-  @pytest.fixture(scope="function")
+@pytest.fixture(scope="function")
   def browser():
       """Фикстура для создания и закрытия браузера перед и после теста."""
       print("\nЗапуск браузера для теста...")
@@ -146,3 +143,4 @@ test_registration_page.py
 7. Проверка ввода несуществующего региона (валидация/фоллбек)  
 
 8. Проверка поля email/телефон в неверном формате (validation)
+
