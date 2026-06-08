@@ -27,6 +27,7 @@ class AuthLocators:
     AUTH_CODE_INPUT = (By.ID, "rt-code-input")
     CAPTCHA_IMAGE = (By.PARTIAL_LINK_TEXT, "https://webapi.passport.rt.ru/captcha/getcaptcha")
     CAPTCHA_RELOAD_BTN = (By.CLASS_NAME, "rt-captcha__reload")
+    CODE_INPUT_ERROR = (By.CLASS_NAME, "code-input-container__code-input--error")
 
     #Блок локаторов для временного кода lk.rt.ru, lk.smarthome.rt.ru
     AUTH_TEMP_CODE_WINDOW_1 = (By.ID, "rt-code-0")

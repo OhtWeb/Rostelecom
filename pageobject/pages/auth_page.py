@@ -15,10 +15,17 @@ class AuthPage(BasePage):
         self.enter_text(AuthLocators.AUTH_PASS, password)
         self.click_element(AuthLocators.LOGIN_BTN)
 
-    def request_temporary_code(self, address):
-        # Получение временного кода на адрес/телефон
+    def fill_login_form(self, address):
         self.enter_text(AuthLocators.AUTH_ADDRESS, address)
+
+    def request_temporary_code(self):
         self.click_element(AuthLocators.AUTH_GET_CODE)
+
+    def enter_temp_code(self, code):
+        self.enter_text(AuthLocators.AUTH_CODE_INPUT, code)
+
+    def is_temp_code_invalid(self):
+        return self.is_element_present(AuthLocators.CODE_INPUT_ERROR)
 
     def is_user_logged_in(self):
         # Проверка, что авторизация прошла успешно
