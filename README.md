@@ -26,14 +26,22 @@
 
 
 • tests/ — тесты:
+
 • test_auth_page.py
+
 • test_password_recovery_page.py
+
 • test_registration_page.py
 
+
 • .env — приватные данные (в репозитории используются плэйсхолдеры, изменить перед началом работы)
+
 • pytest.ini — конфигурация pytest (уровень логирования, опции по умолчанию)
+
 • requirements.txt — зависимости проекта
+
 • .gitignore — игнорируемые файлы (включая .env, драйвера и т.п.)
+
 
 ——————————
 
@@ -89,9 +97,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 
   python -m pytest
   
+  
 • Запустить конкретный файл:
 
   python -m pytest pageobject/tests/test_auth_page.py
+  
   
 • Запустить один тест:
 
