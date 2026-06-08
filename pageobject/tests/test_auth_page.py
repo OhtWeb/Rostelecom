@@ -1,4 +1,3 @@
-import pytest
 from pageobject.pages.settings import Settings
 from pageobject.pages.auth_page import AuthPage
 
@@ -69,7 +68,7 @@ def test_auth_with_missing_password(browser):
         print("Успешная проверка: система выдала ошибку при неполных данных!")
     print("--- Тест test_auth_with_invalid_password завершен ---")
 
-# 5. Проверка чувствительности системы к регистру пароля
+# 5. Проверка входа с неверным регистром
 def test_auth_password_case_sensitivity(browser):
     auth_page = AuthPage(browser, url=Settings.BASE_URL)
     print("\n--- Запуск теста: test_auth_password_case_sensitivity ---")
@@ -135,3 +134,21 @@ def test_auth_xss_injection_in_login(browser):
     assert is_security_warning, "Ошибка валидации при XSS-вводе не появилась!"
 
     print("--- Тест test_auth_xss_injection_in_login завершен ---")
+
+#8. Проверка авторизации по неверному временному коду
+
+def test_auth_with_invalid_code(browser):
+    auth_page = AuthPage(browser, url=Settings.BASE_URL)
+    print("\n--- Запуск теста: test_auth_with_invalid_code ---")
+    auth_page.open()
+    auth_page.fill_login_form(Settings.LOGIN)
+    auth_page.request_temporary_code()
+    invalid_code = "012345"
+    print(f"Переходим на страницу ввода временного кода")
+    auth_page.enter_temp_code(invalid_code)
+
+    is_invalid_code = auth_page.is_temp_code_invalid()
+    assert is_invalid_code, "Сообщение об ошибке при неверных данных не появилось!"
+    if is_invalid_code:
+        print("Успешная проверка: система выдала ошибку при неверном коде!")
+    print("--- Тест test_auth_with_valid_password завершен ---")
