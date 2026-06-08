@@ -32,3 +32,5 @@ class RegistrationPage(BasePage):
         return element.get_attribute("type")
     def get_region_error_message(self):
         return self.is_element_present(AuthLocators.REGION_ERROR, timeout=5)
+    def get_wrong_address(self):
+        return self.is_element_present(AuthLocators.ADDRESS_ERROR, timeout=5)

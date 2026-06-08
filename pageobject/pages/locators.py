@@ -47,7 +47,7 @@ class AuthLocators:
     AUTH_LAST_NAME = (By.NAME, "lastName")
     AUTH_FIRST_NAME = (By.NAME, "firstName")
     AUTH_PATRONYMIC = (By.NAME, "patronymic")
-    AUTH_EMAIL = (By.NAME, "address")
+    AUTH_EMAIL = (By.ID, "address")
     CONFIRM_CODE_INPUT = (By.ID, "code_input")
     BTN_FORWARD = (By.PARTIAL_LINK_TEXT, "Далее")
     BTN_BACK = (By.PARTIAL_LINK_TEXT, "Назад")
@@ -61,6 +61,7 @@ class AuthLocators:
     BTN_ANYWHERE = (By.ID, "page-right")
     BTN_SHOW_PASS = (By.CSS_SELECTOR, ".rt-eye-icon.rt-input__eye")
     REGION_ERROR = (By.CSS_SELECTOR, ".rt-select__list-no-found")
+    ADDRESS_ERROR = (By.CSS_SELECTOR, ".rt-input-container__meta.rt-input-container__meta--error")
 
     #Кнопка выхода из аккаунта находится на отдельной стринце https://lk.smarthome.rt.ru/profile?section=my_account
     BTN_LOGOUT = (By.PARTIAL_LINK_TEXT, "Выйти")
