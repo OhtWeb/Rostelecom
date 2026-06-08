@@ -46,7 +46,7 @@
 3. Запуск браузера (conftest / webdriver-manager)
 
 Пример фикстуры в conftest.py:
-
+#
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
