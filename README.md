@@ -7,14 +7,23 @@
 Содержимое репозитория (кратко)
 
 • pageobject/
+
 • pages/ — PageObject страницы:
+
 • base_page.py — базовый класс со вспом. методами (open, find_element, click_element, enter_text, is_element_present, get_error_text и т.д.)
+
 • auth_page.py — методы для авторизации (login_by_password, request_temporary_code, enter_temp_code, is_temp_code_invalid и т.п.)
+
 • password_recovery_page.py — методы для восстановления пароля
+
 • registration_page.py — методы для регистрации
+
 • locators.py — все локаторы (AuthLocators и т.п.)
+
 • settings.py — конфигурация (подтягивается из .env, таймауты, тестовые данные)
+
 • conftest.py — фикстуры pytest (browser, setup/teardown)
+
 
 • tests/ — тесты:
 • test_auth_page.py
